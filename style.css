@@ -1,0 +1,37 @@
+* { box-sizing: border-box; }
+body { margin: 0; font-family: system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif; color: #1f2937; background: #f6f8fb; line-height: 1.5; }
+.hero { background: linear-gradient(135deg, #2563eb, #06b6d4); color: #fff; text-align: center; padding: 2.5rem 1rem 2rem; }
+.hero h1 { margin: 0; font-size: 2.4rem; }
+.tagline { margin: .5rem 0 1.25rem; opacity: .95; }
+.tool-nav { display: flex; flex-wrap: wrap; gap: .5rem; justify-content: center; }
+.tool-nav a { color: #fff; background: rgba(255,255,255,.18); border: 1px solid rgba(255,255,255,.35); padding: .4rem .8rem; border-radius: 999px; text-decoration: none; font-size: .9rem; }
+.tool-nav a:hover { background: rgba(255,255,255,.32); }
+main { max-width: 960px; margin: 0 auto; padding: 1.5rem 1rem 3rem; }
+.tool-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; margin-bottom: 2rem; }
+.card { background: #fff; border: 1px solid #e5e7eb; border-radius: 14px; padding: 1.1rem; text-decoration: none; color: inherit; display: flex; flex-direction: column; gap: .25rem; box-shadow: 0 1px 3px rgba(0,0,0,.06); }
+.card:hover { border-color: #2563eb; box-shadow: 0 4px 14px rgba(37,99,235,.15); }
+.card .icon { font-size: 1.8rem; }
+.card small { color: #6b7280; }
+.tool { background: #fff; border: 1px solid #e5e7eb; border-radius: 14px; padding: 1.25rem 1.5rem; margin-bottom: 1.5rem; scroll-margin-top: 1rem; }
+.tool h2 { margin-top: 0; }
+.row { display: flex; flex-wrap: wrap; gap: 1rem; align-items: end; }
+.row label { flex: 1; min-width: 140px; }
+label { display: block; font-weight: 600; margin-bottom: .75rem; }
+input, select { width: 100%; padding: .6rem .7rem; margin-top: .3rem; font-size: 1rem; border: 1px solid #d1d5db; border-radius: 8px; background: #fff; }
+input[type="range"] { padding: 0; }
+.result { font-size: 1.25rem; font-weight: 700; color: #2563eb; margin: .75rem 0 0; overflow-wrap: anywhere; }
+.note { color: #6b7280; font-size: .9rem; }
+.btn { display: inline-block; background: #2563eb; color: #fff; border: none; padding: .7rem 1.4rem; font-size: 1rem; font-weight: 700; border-radius: 10px; cursor: pointer; text-decoration: none; margin-top: .5rem; }
+.btn:hover { background: #1d4ed8; }
+.calc { max-width: 340px; }
+.calc-display { background: #111827; color: #fff; font-size: 1.8rem; text-align: right; padding: .8rem 1rem; border-radius: 10px; overflow-x: auto; white-space: nowrap; }
+.calc-buttons { display: grid; grid-template-columns: repeat(4, 1fr); gap: .5rem; margin-top: .6rem; }
+.calc-buttons button { font-size: 1.25rem; padding: .8rem 0; border: 1px solid #d1d5db; background: #f9fafb; border-radius: 10px; cursor: pointer; }
+.calc-buttons button:hover { background: #e5e7eb; }
+.calc-buttons .wide { grid-column: span 2; }
+.calc-buttons .eq { background: #2563eb; color: #fff; border-color: #2563eb; }
+.qr-out { margin-top: 1rem; }
+.qr-out img, .qr-out canvas { border: 8px solid #fff; outline: 1px solid #e5e7eb; border-radius: 8px; }
+figure { margin: 0; flex: 1; min-width: 200px; }
+figure img { max-width: 100%; border: 1px solid #e5e7eb; border-radius: 8px; }
+footer { text-align: center; color: #6b7280; padding: 1.5rem 1rem 2.5rem; font-size: .9rem; }

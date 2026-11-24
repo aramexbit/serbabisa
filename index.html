@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SerbaBisa — Toolbox Gratis: Kalkulator, Konverter, QR, dan Lainnya</title>
+<meta name="description" content="SerbaBisa adalah kumpulan alat gratis yang bisa dipakai semua umur tanpa daftar: kalkulator, konverter satuan dan mata uang, hitung umur, BMI, pembuat QR code, dan kompres gambar.">
+<link rel="stylesheet" href="style.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js" defer></script>
+<script src="app.js" defer></script>
+</head>
+<body>
+<header class="hero">
+  <h1>🔧 SerbaBisa</h1>
+  <p class="tagline">Alat gratis untuk semua umur — tanpa daftar, tanpa bayar, langsung pakai.</p>
+  <nav class="tool-nav">
+    <a href="#kalkulator">Kalkulator</a>
+    <a href="#satuan">Konverter Satuan</a>
+    <a href="#uang">Konverter Uang</a>
+    <a href="#umur">Hitung Umur</a>
+    <a href="#bmi">BMI</a>
+    <a href="#qr">QR Code</a>
+    <a href="#gambar">Kompres Gambar</a>
+  </nav>
+</header>
+
+<main>
+  <section class="tool-grid" aria-label="Daftar alat">
+    <a class="card" href="#kalkulator"><span class="icon">🧮</span><strong>Kalkulator</strong><small>Hitung cepat tambah, kurang, kali, bagi</small></a>
+    <a class="card" href="#satuan"><span class="icon">📏</span><strong>Konverter Satuan</strong><small>Panjang, berat, dan suhu</small></a>
+    <a class="card" href="#uang"><span class="icon">💱</span><strong>Konverter Uang</strong><small>Rupiah, dolar, dan mata uang lain</small></a>
+    <a class="card" href="#umur"><span class="icon">🎂</span><strong>Hitung Umur</strong><small>Umurmu dalam tahun, bulan, dan hari</small></a>
+    <a class="card" href="#bmi"><span class="icon">⚖️</span><strong>Kalkulator BMI</strong><small>Cek berat badan idealmu</small></a>
+    <a class="card" href="#qr"><span class="icon">🔳</span><strong>Pembuat QR Code</strong><small>Ubah teks atau link jadi QR</small></a>
+    <a class="card" href="#gambar"><span class="icon">🖼️</span><strong>Kompres Gambar</strong><small>Perkecil foto langsung di browser</small></a>
+  </section>
+
+  <section class="tool" id="kalkulator">
+    <h2>🧮 Kalkulator</h2>
+    <div class="calc">
+      <div class="calc-display" id="calcDisplay">0</div>
+      <div class="calc-buttons">
+        <button data-act="clear">C</button>
+        <button data-act="back">⌫</button>
+        <button data-act="pct">%</button>
+        <button data-op="÷">÷</button>
+        <button data-num="7">7</button>
+        <button data-num="8">8</button>
+        <button data-num="9">9</button>
+        <button data-op="×">×</button>
+        <button data-num="4">4</button>
+        <button data-num="5">5</button>
+        <button data-num="6">6</button>
+        <button data-op="−">−</button>
+        <button data-num="1">1</button>
+        <button data-num="2">2</button>
+        <button data-num="3">3</button>
+        <button data-op="+">+</button>
+        <button data-num="0" class="wide">0</button>
+        <button data-num=".">.</button>
+        <button data-act="eq" class="eq">=</button>
+      </div>
+    </div>
+  </section>
+
+  <section class="tool" id="satuan">
+    <h2>📏 Konverter Satuan</h2>
+    <label>Jenis
+      <select id="unitKind">
+        <option value="panjang">Panjang</option>
+        <option value="berat">Berat</option>
+        <option value="suhu">Suhu</option>
+      </select>
+    </label>
+    <div class="row">
+      <label>Nilai <input type="number" id="unitValue" value="1" step="any"></label>
+      <label>Dari <select id="unitFrom"></select></label>
+      <label>Ke <select id="unitTo"></select></label>
+    </div>
+    <p class="result" id="unitResult">—</p>
+  </section>
+
+  <section class="tool" id="uang">
+    <h2>💱 Konverter Mata Uang</h2>
+    <div class="row">
+      <label>Jumlah <input type="number" id="curAmount" value="100000" step="any"></label>
+      <label>Dari
+        <select id="curFrom">
+          <option value="IDR">IDR — Rupiah</option>
+          <option value="USD">USD — Dolar AS</option>
+          <option value="EUR">EUR — Euro</option>
+          <option value="SGD">SGD — Dolar Singapura</option>
+          <option value="MYR">MYR — Ringgit</option>
+          <option value="JPY">JPY — Yen</option>
+        </select>
+      </label>
+      <label>Ke
+        <select id="curTo">
+          <option value="USD">USD — Dolar AS</option>
+          <option value="IDR">IDR — Rupiah</option>
+          <option value="EUR">EUR — Euro</option>
+          <option value="SGD">SGD — Dolar Singapura</option>
+          <option value="MYR">MYR — Ringgit</option>
+          <option value="JPY">JPY — Yen</option>
+        </select>
+      </label>
+    </div>
+    <p class="result" id="curResult">—</p>
+    <p class="note" id="curNote">Mengambil kurs terbaru…</p>
+  </section>
+
+  <section class="tool" id="umur">
+    <h2>🎂 Hitung Umur</h2>
+    <div class="row">
+      <label>Tanggal lahir <input type="date" id="birthDate"></label>
+    </div>
+    <button class="btn" id="ageBtn">Hitung umur saya</button>
+    <p class="result" id="ageResult">—</p>
+  </section>
+
+  <section class="tool" id="bmi">
+    <h2>⚖️ Kalkulator BMI</h2>
+    <div class="row">
+      <label>Berat (kg) <input type="number" id="bmiWeight" placeholder="mis. 65" step="any" min="1"></label>
+      <label>Tinggi (cm) <input type="number" id="bmiHeight" placeholder="mis. 170" step="any" min="1"></label>
+    </div>
+    <button class="btn" id="bmiBtn">Hitung BMI</button>
+    <p class="result" id="bmiResult">—</p>
+  </section>
+
+  <section class="tool" id="qr">
+    <h2>🔳 Pembuat QR Code</h2>
+    <label>Teks atau link
+      <input type="text" id="qrText" placeholder="mis. https://serbabisa.vercel.app" value="https://serbabisa.vercel.app">
+    </label>
+    <button class="btn" id="qrBtn">Buat QR Code</button>
+    <div class="qr-out" id="qrOut"></div>
+    <p class="note">Klik kanan / tahan pada QR untuk menyimpan gambarnya.</p>
+  </section>
+
+  <section class="tool" id="gambar">
+    <h2>🖼️ Kompres Gambar</h2>
+    <p class="note">Foto diproses di browser kamu sendiri — tidak diunggah ke mana-mana.</p>
+    <label>Pilih gambar <input type="file" id="imgInput" accept="image/*"></label>
+    <label>Kualitas <input type="range" id="imgQuality" min="10" max="95" value="70"> <span id="imgQualityLabel">70%</span></label>
+    <div class="row">
+      <figure><figcaption>Asli</figcaption><img id="imgBefore" alt=""><p id="imgBeforeSize">—</p></figure>
+      <figure><figcaption>Hasil</figcaption><img id="imgAfter" alt=""><p id="imgAfterSize">—</p></figure>
+    </div>
+    <a class="btn" id="imgDownload" download="gambar-kompres.jpg" href="#">Unduh hasil</a>
+  </section>
+</main>
+
+<footer>
+  <p>SerbaBisa — alat gratis untuk semua orang. Dibuat dengan ❤️, berjalan sepenuhnya di browser kamu.</p>
+</footer>
+</body>
+</html>
